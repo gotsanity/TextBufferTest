@@ -1,6 +1,5 @@
 #include "AbstractRoom.h"
 
-
 AbstractRoom::AbstractRoom(std::string desc)
 {
 	Description = desc;
