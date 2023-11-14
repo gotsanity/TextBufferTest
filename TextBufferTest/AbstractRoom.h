@@ -3,6 +3,8 @@
 #include <memory>
 #include "EColour.h"
 
+class Map;
+
 class AbstractRoom
 {
 
@@ -10,6 +12,7 @@ private:
 
 protected:
 	std::string Description;
+	bool bShouldRunEvent;
 
 public:
 	AbstractRoom(std::string desc);
@@ -19,6 +22,7 @@ public:
 
 	virtual short ToShort() = 0;
 	virtual COLOUR GetColor();
-	virtual bool Execute();
+	virtual bool Execute(Map& theMap);
+	virtual bool ShouldRunEvent();
 };
 

@@ -9,7 +9,7 @@ short EmptyRoom::ToShort()
 	return L'#';
 }
 
-//COLOUR EmptyRoom::GetColor()
-//{
-//	return FG_BLACK;
-//}
+COLOUR EmptyRoom::GetColor()
+{
+	return FG_BLACK;
+}

@@ -7,7 +7,7 @@ class Game :
 {
 public:
 	Game();
-	void RunCombat();
+	void RunCombat(std::string monsterType);
 
 protected:
 	bool OnUserCreate();

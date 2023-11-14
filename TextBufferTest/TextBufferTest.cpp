@@ -5,7 +5,7 @@ int main()
 {
 	Game myGame;
 
-	myGame.ConstructConsole(160, 80, 8, 8);
+	myGame.ConstructConsole(120, 90, 8, 8);
 
 	myGame.Start();
 

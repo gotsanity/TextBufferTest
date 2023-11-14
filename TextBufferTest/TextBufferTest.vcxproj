@@ -130,6 +130,7 @@
     <ClCompile Include="AbstractRoom.cpp" />
     <ClCompile Include="EColour.cpp" />
     <ClCompile Include="EmptyRoom.cpp" />
+    <ClCompile Include="EncounterInfo.cpp" />
     <ClCompile Include="EncounterRoom.cpp" />
     <ClCompile Include="EntranceRoom.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="AbstractRoom.h" />
     <ClInclude Include="EColour.h" />
     <ClInclude Include="EmptyRoom.h" />
+    <ClInclude Include="EncounterInfo.h" />
     <ClInclude Include="EncounterRoom.h" />
     <ClInclude Include="EntranceRoom.h" />
     <ClInclude Include="Game.h" />

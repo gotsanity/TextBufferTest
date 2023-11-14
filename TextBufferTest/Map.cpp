@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "Game.h"
 
 int Map::GetRandomNumber(int min, int max)
 {
@@ -14,8 +15,9 @@ Map::Map()
 	SizeY = 0;
 }
 
-Map::Map(int sizeX, int sizeY)
+Map::Map(int sizeX, int sizeY, Game& game)
 {
+	gameRef = &game;
 	SizeX = sizeX;
 	SizeY = sizeY;
 
@@ -32,10 +34,10 @@ Map::Map(int sizeX, int sizeY)
 				Rooms[i].push_back(new EntranceRoom("The stairs lead you down into the dungeon..."));
 			}
 			else if (roomChoice > 9) {
-				Rooms[i].push_back(new EmptyRoom("This room is dusty but otherwise empty."));
+				Rooms[i].push_back(new EncounterRoom("You walk into the room and are suddenly faced with a ", "Goblin"));
 			}
 			else {
-				Rooms[i].push_back(new EncounterRoom("You walk into the room and are suddenly faced with a ", "Goblin"));
+				Rooms[i].push_back(new EmptyRoom("This room is dusty but otherwise empty."));
 			}
 		}
 	}
@@ -54,4 +56,9 @@ int Map::GetSizeY()
 AbstractRoom* Map::GetRoom(int x, int y)
 {
 	return Rooms[y][x];
+}
+
+void Map::StartCombat(std::string msg)
+{
+	gameRef->RunCombat(msg);
 }

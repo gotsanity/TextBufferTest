@@ -13,6 +13,6 @@ public:
 
 	// Inherited via AbstractRoom
 	virtual short ToShort() override;
-	/*virtual COLOUR GetColor() override;*/
+	virtual COLOUR GetColor() override;
 };
 

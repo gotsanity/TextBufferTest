@@ -6,7 +6,7 @@ bool Game::OnUserCreate()
 	playerY = 2;
 	text = "";
 	combatText = "";
-	myMap = new Map(30, 30);
+	myMap = new Map(30, 30, *this);
     return true;
 }
 
@@ -47,12 +47,15 @@ bool Game::OnUserUpdate(float fElapesedTime)
 
 	// DRAW PLAYER
 	Fill(playerX, playerY, playerX + 1, playerY + 1, L'P', 3);
-	text = myMap->GetRoom(playerY - 2, playerX - 2)->GetDescription();
+	text = myMap->GetRoom(playerX - 2, playerY - 2)->GetDescription();
 
 	// Draw Room
-	myMap->GetRoom(playerY - 2, playerX - 2)->Execute();
+	if (myMap->GetRoom(playerX - 2, playerY - 2)->ShouldRunEvent()) {
+		myMap->GetRoom(playerX - 2, playerY - 2)->Execute(*myMap);
+	}
 
 	DrawString(1, myMap->GetSizeY() + 5, std::wstring(text.begin(), text.end()).c_str());
+	DrawString(1, myMap->GetSizeY() + 6, std::wstring(combatText.begin(), combatText.end()).c_str());
 
 	return true;
 }
@@ -76,7 +79,8 @@ Game::Game()
 
 }
 
-void Game::RunCombat()
+void Game::RunCombat(std::string monsterType)
 {
-	combatText = "Combat Started";
+	combatText = "Combat Started with " + monsterType;
+	
 }
